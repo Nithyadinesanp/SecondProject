@@ -1,4 +1,4 @@
-package com.niit.restexample.rest.config;
+package com.niit.ni.nirest.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

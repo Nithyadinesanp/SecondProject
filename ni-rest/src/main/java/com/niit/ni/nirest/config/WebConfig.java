@@ -1,4 +1,4 @@
-package com.niit.restexample.rest.config;
+package com.niit.ni.nirest.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

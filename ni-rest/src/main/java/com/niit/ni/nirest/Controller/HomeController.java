@@ -1,4 +1,5 @@
-package com.niit.restexample.rest.controller;
+
+package com.niit.ni.nirest.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

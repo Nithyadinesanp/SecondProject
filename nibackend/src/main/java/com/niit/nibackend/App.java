@@ -1,4 +1,4 @@
-package com.niit.restexample.backend;
+package com.niit.nibackend;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
