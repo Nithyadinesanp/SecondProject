@@ -29,11 +29,7 @@ public class UserRestController {
 	@Autowired
 	FriendDao friendDao;
 	
-	/**
-	 * This method returns the list of registered users.
-	 * 
-	 * @return users the list of registered users.
-	 */
+	
 	@GetMapping(value = "/user/all/")
 	public ResponseEntity<List<User>> getAllUsers() {
 		System.out.println("Inside UserController::getAllUsers()....");
@@ -44,13 +40,7 @@ public class UserRestController {
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 	
-	/**
-	 * This method returns the list of all registered users except 
-	 * the logged in user.
-	 * 
-	 * @param session The HttpSession to retrieve the id of logged in user.
-	 * @return users, the list of registered users except logged in user.
-	 */
+	
 	@GetMapping(value = "/user/others/")
 	public ResponseEntity<List<User>> getAllUsersExceptLoggedIn(HttpSession session) {
 		System.out.println("Inside UserController::getAllUsersExceptLoggedIn()....");
@@ -62,12 +52,7 @@ public class UserRestController {
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
 	
-	/**
-	 * This method returns a user whose id is passed through HTTP URL.
-	 * 
-	 * @param id The userId whose details are to be retrieved.
-	 * @return user The User object along with HttpStatus OK.
-	 */
+	
 	@GetMapping(value = "/user/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUser(@PathVariable("id") long id) {
 		System.out.println("Inside UserController::getUser()....");
@@ -78,13 +63,7 @@ public class UserRestController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	/**
-	 * This method returns a user whose username is passed through HTTP URL.
-	 * This method is also used in not allowing duplicate usernames in the database.
-	 *  
-	 * @param username The username of the User to be retrieved.
-	 * @return user The User object along with HttpStatus OK.
-	 */
+	
 	@GetMapping(value = "/user/uname/{uname}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getUser(@PathVariable("uname") String username) {
 		System.out.println("Inside UserController::getUser(uname)....");
@@ -95,12 +74,7 @@ public class UserRestController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
-	/**
-	 * This method is used to register new User.
-	 * 
-	 * @param newUser The new User's registration details.
-	 * @return HttpStatus OK if registration is successful, CONFLICT otherwise.
-	 */
+	
 	@PostMapping(value = "/user/")
 	public ResponseEntity<Void> createUser(@RequestBody User newUser) {
 		System.out.println("Inside UserController::createUser()....");

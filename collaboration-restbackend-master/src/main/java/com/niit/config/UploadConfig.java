@@ -20,12 +20,5 @@ public class UploadConfig extends Application {
 		s.add(MultiPartFeature.class);
 		return s;
 	}
-/*
-	@Override
-	public Map<String, Object> getProperties() {
-		Map<String, Object> properties = new HashMap<String, Object>();
-		properties.put("jersey.config.server.provider.classnames", "org.glassfish.jersey.media.multipart.MultiPartFeature");
-		return super.getProperties();
-	}
-*/
+
 }

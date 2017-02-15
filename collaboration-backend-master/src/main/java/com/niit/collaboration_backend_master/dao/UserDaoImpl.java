@@ -20,11 +20,7 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	/**
-	 * This method creates a new user.
-	 * 
-	 * @param user the new user to be created.
-	 */
+	
 	public void create(User user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}

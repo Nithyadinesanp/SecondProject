@@ -24,11 +24,7 @@ public class EventDaoImpl implements EventDao {
 	public void update(Event event) {
 		sessionFactory.getCurrentSession().saveOrUpdate(event);
 	}
-/*
-	public void remove(Event event) {
-		sessionFactory.getCurrentSession().delete(event);
-	}
-*/
+
 	public Event getEventById(long eventId) {
 		String hql = "from Event where eventId=" + eventId;
 		Event event = (Event) sessionFactory.getCurrentSession().createQuery(hql).getSingleResult();
