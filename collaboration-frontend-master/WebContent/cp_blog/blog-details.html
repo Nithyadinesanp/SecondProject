@@ -1,0 +1,62 @@
+<div class="container">
+	<h2 style="text-align: center;"> {{ selectedBlog.title }} <span style="text-align: right;">Created By: {{ selectedBlog.user.username | uppercase }}</span></h2>
+	<form editable-form class="form-horizontal" name="form" onaftersave="vm.updateBlog(selectedBlog)">
+		<div class="form-group">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<span class="title"><strong>Blog Title:</strong></span>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<span editable-text="selectedBlog.title" e-name="title" onbeforesave="checkTitle($data)" e-required>{{ selectedBlog.title || 'empty' }}</span>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<span class="title"><strong>Blog Description:</strong></span>
+			</div>
+			<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+				<span editable-textarea="selectedBlog.content" e-rows="7" e-cols="40" e-name="description" onbeforesave="checkContent($data)"
+					e-required>{{ selectedBlog.content || 'empty' }}</span>
+			</div>
+		</div>
+		<div class="buttons" ng-show="loggedInUser.userId == selectedBlog.user.userId">
+			<button type="button" class="btn btn-default" ng-click="form.$show()" ng-show="!form.$visible">Edit</button>
+			<!-- buttons to submit / cancel form -->
+			<span ng-show="form.$visible">
+				<button type="submit" class="btn btn-primary" ng-disabled="form.$waiting">Save</button>
+				<button type="button" class="btn btn-default" ng-disabled="form.$waiting" ng-click="form.$cancel()">Cancel</button>
+			</span>
+		</div>
+	</form>
+	<hr>
+	<div class="container-fluid">
+		<div class="panel panel-default" ng-repeat="comment in selectedBlogComments">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h2 class="panel-title">Commented By: {{ comment.user.username }}</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						{{ comment.comments }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" ng-hide="selectedBlog.user.userId == loggedInUser.userId">
+		<hr>
+		<form method="POST" class="form-horizontal" role="form">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<textarea rows="5" cols="" ng-model="vm.comment.comments" class="form-control"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10 col-sm-offset-2">
+					<button type="submit" class="btn btn-primary" ng-click="vm.makeComment(selectedBlog)">Post Comment</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

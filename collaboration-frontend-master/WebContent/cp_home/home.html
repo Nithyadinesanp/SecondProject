@@ -1,0 +1,148 @@
+
+<div>
+    <h1 style="text-align: center;">WELCOME TO YOUR HOME PAGE, {{ loggedInUser.username | uppercase }}</h1>
+    
+    <div id="image-carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#image-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#image-carousel" data-slide-to="1" class=""></li>
+            <li data-target="#image-carousel" data-slide-to="2" class=""></li>
+            <li data-target="#image-carousel" data-slide-to="3" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img alt="First slide" src="resources/images/collaborate.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Collaborate</h1>
+                        <p>Collaborate with your friends and teachers to enhance your projects and learn new things.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#!/register" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="Second slide" src="resources/images/blog.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Blogs</h1>
+                        <p>Create Blogs, read blogs, make comments on blog created by your friends and other users.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#!/view-blogs" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="Third slide" src="resources/images/find-job.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Jobs</h1>
+                        <p>View, search and apply for jobs suitable for you, all at one place.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#!/view-jobs" role="button">View Jobs</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="Forth slide" src="resources/images/friendship.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Friends</h1>
+                        <p>Find your friends here. Connect to them, collaborate with them, chat with them.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#!/register" role="button">Sign Up</a> Here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#image-carousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#image-carousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    
+    <div class="container-fluid" ng-show="loggedInUser.role == 'ADMIN'">
+    	<div class="row">
+    		<div class="panel panel-info col-md-3">
+    			<div class="panel-body">
+    				<a class="btn btn-primary btn-block" href="#!/manage-users">Manage User(s)</a>
+    			</div>
+    		</div>
+    		<div class="panel panel-info col-md-3">
+    			<div class="panel-body">
+    				<a class="btn btn-primary btn-block" href="#!/manage-blogs">Manage Blog(s)</a>
+    			</div>
+    		</div>
+    		<div class="panel panel-info col-md-3">
+    			<div class="panel-body">
+    				<a class="btn btn-primary btn-block" href="#!/manage-jobs">Manage Job(s)</a>
+    			</div>
+    		</div>
+    		<div class="panel panel-info col-md-3">
+    			<div class="panel-body">
+    				<a class="btn btn-primary btn-block" href="#!/manage-events">Manage Event(s)</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+              <div class="col-offset-10 col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
+                    <a href="#!/chat" class="btn btn-primary">Chat</a>
+              </div>
+        </div>
+        <br>
+        <div class="row">
+              <div class="col-offset-10 col-xs-2 col-sm-2 col-md-2 col-lg-2 pull-right">
+                    <a class="btn btn-warning" ng-click="vm.logout()">Logout</a>
+              </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Blogs</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/list-blogs" class="btn btn-link btn-block">View All Blogs</a>
+                            <br><br>
+                            <a href="#!/new-blog" class="btn btn-link btn-block">Create Blog(s)</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Events</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/list-events" class="btn btn-link btn-block">View All Events</a>
+                            <br><br>
+                            <a href="#!/new-event" class="btn btn-link btn-block">Create Event</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Jobs</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/list-jobs" class="btn btn-link btn-block">View All Jobs</a>
+                            <br><br>
+                            <a href="#!/list-applied-jobs" class="btn btn-link btn-block">View Applied Job(s)</a>
+                      </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-info">
+                      <div class="panel-heading">
+                            <h3 class="panel-title">Friends</h3>
+                      </div>
+                      <div class="panel-body">
+                            <a href="#!/list-friends" class="btn btn-link btn-block">View All Friends</a>
+                            <br><br>
+                            <a href="#!/find-friends" class="btn btn-link btn-block">Find Friends</a>
+                            <br><br>
+                            <a href="#!/view-friend-requests" class="btn btn-link btn-block">View Friend Requests</a>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
