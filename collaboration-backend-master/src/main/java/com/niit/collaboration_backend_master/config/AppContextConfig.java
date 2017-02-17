@@ -16,16 +16,17 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 @Configuration
 @ComponentScan(basePackages = "com.niit")
 public class AppContextConfig {
-	@Bean(name = "dataSource")
-	public DataSource getOracleDataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
-
-		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+	@Bean("dataSource")
+	public DataSource getH2DataSource()
+	{
+		BasicDataSource dataSource=new BasicDataSource();
+		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("project2c");
+		dataSource.setUsername("project2");
 		dataSource.setPassword("backend");
-
+		
 		return dataSource;
+		
 	}
 
 	@Autowired
@@ -35,7 +36,7 @@ public class AppContextConfig {
 
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setHibernateProperties(getHibernateProperties());
-		sessionFactory.setPackagesToScan(new String[] { "com.niit.collaboration.backend.model" });
+		sessionFactory.setPackagesToScan(new String[] { "com.niit.collaboration_backend_master.model" });
 
 		return sessionFactory;
 	}
