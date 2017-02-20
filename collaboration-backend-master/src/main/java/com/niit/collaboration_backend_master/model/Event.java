@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CP_EVENT", schema = "test")
+@Table(name = "CP_EVENT", schema = "PROJECT2")
 public class Event {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
