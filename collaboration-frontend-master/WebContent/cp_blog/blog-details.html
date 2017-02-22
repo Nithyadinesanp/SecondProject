@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+body {
+background-image:url("http://kingofwallpapers.com/white-background-wallpaper/white-background-wallpaper-004.jpg");
+}
+</style>
+</head>
+<body>
 <div class="container">
 	<h2 style="text-align: center;"> {{ selectedBlog.title }} <span style="text-align: right;">Created By: {{ selectedBlog.user.username | uppercase }}</span></h2>
 	<form editable-form class="form-horizontal" name="form" onaftersave="vm.updateBlog(selectedBlog)">
@@ -60,3 +72,5 @@
 		</form>
 	</div>
 </div>
+</body>
+</html>

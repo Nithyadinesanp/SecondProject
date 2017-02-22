@@ -1,28 +1,110 @@
-<div class="panel panel-info" id="login-dp">
-    <div class="row">
-		<div class="col-md-12 pull-right">
-			<form class="form" role="form" method="post" ng-submit="vm.login()">
-				<h2 class="panel-title">Registered User Login</h2>
-				
-				<div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-					<input type="text" name="username" class="form-control" placeholder="Username...." required ng-model="vm.User.username">
-				</div>
-				<br>
-				<div class="form-group"  ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
-					<input type="password" class="form-control" name="password" placeholder="Password" required ng-model="vm.User.password">
-					
-				</div>
-				<br>
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block">Sign in</button>
-					<i ng-if="vm.dataLoading" class="fa fa-spinner" aria-hidden="true"></i>
-				</div>
-			</form>
-			<div class="bottom text-center">
-				New here ? <a href="#!/register"><b>Join Us</b></a>
-			</div>
-		</div>
 
-	</div>
-    
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Login Page</title>
+<style type="text/css">
+body {
+background-image:url("http://kingofwallpapers.com/white-background-wallpaper/white-background-wallpaper-004.jpg");
+/*  color: #5a5656;  */
+/*  font-family: 'Open Sans', Arial, Helvetica, sans-serif;  */
+/*  font-size: 16px;  */
+/*  line-height: 1.5em;  */
+}
+/* a  */
+/* { */
+/*  text-decoration: none;  */
+/*  } */
+/* h1  */
+/* {  */
+/* font-size: 1em;  */
+/* } */
+/* h1, p  */
+/* { */
+/* margin-bottom: 10px; */
+/* } */
+/* strong { */
+/* font-weight: bold; */
+/* } */
+.uppercase { text-transform: uppercase; }
+/* ---------- LOGIN ---------- */
+ #login
+  { 
+ margin: 50px auto; 
+ width: 300px; 
+ } 
+ form fieldset input[type="text"], input[type="password"] 
+  { 
+ background-color: 	#000000; 
+ border: none; 
+ border-radius: 3px; 
+ -moz-border-radius: 3px; 
+ -webkit-border-radius: 3px; 
+ color: #FFFFFF; 
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
+ font-size: 14px; 
+height: 50px; 
+ outline: none; 
+ padding: 0px 10px; 
+ width: 280px; 
+ -webkit-appearance:none; 
+ } 
+form fieldset input[type="submit"]  
+ { 
+ background-color: #008dde; 
+ border: none; 
+ border-radius: 3px; 
+ -moz-border-radius: 3px; 
+ -webkit-border-radius: 3px; 
+ color: #f4f4f4; 
+ cursor: pointer; 
+ font-family: 'Open Sans', Arial, Helvetica, sans-serif; 
+ height: 50px; 
+ text-transform: uppercase; 
+ width: 300px; 
+ -webkit-appearance:none; 
+ } 
+form fieldset a {
+color: #5a5656;
+font-size: 10px;
+}
+form fieldset a:hover { text-decoration: underline; }
+.btn-round {
+background-color: #5a5656;
+border-radius: 50%;
+-moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+color: #f4f4f4;
+display: block;
+font-size: 12px;
+height: 50px;
+line-height: 50px;
+margin: 30px 125px;
+text-align: center;
+text-transform: uppercase;
+width: 50px;
+}
+</style>
+</head>
+<body>
+<div id="login">
+<!-- <center><h1><strong>Login</strong></h1></center> -->
+<form action="javascript:void(0);" method="get">
+<fieldset>
+
+<p><input type="text" id="inputUsername" class="form-control" placeholder="Enter Username" ng-model="user.username" autofocus></p>
+<p><input type="password" id="inputPassword" class="form-control" placeholder="Enter Password" ng-model="user.password" autofocus></p>
+
+
+<br>
+<p><center><button class="button btn btn-lg btn-primary btn-block" type="submit" ng-click="submit()"><span class="glyphicon glyphicon-log-in"></span> Login</button></center></p>
+<br>
+        <center>{{message}}</center>
+
+</fieldset>
+</form>
+
+</div> <!-- end login -->
+</body>
+</html>
